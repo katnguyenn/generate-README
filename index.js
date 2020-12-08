@@ -1,7 +1,8 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const util = require('util');
-const writeFileAsync = util.promisify(writeToFile);
+
+
 
 // array of questions for user
 const questions = [
@@ -10,8 +11,8 @@ const questions = [
         type: 'input',
         message: 'What is your Github username?',
         name: 'Questions',
-        validate: function (name) {
-            if (name.length < 1) {
+        validate: function (word) {
+            if (word.length < 1) {
                 return console.log("You must provide a valid Github username.");
             }
         }
@@ -21,7 +22,7 @@ const questions = [
         message: 'What is the name of your Github repository?',
         name: 'Repository',
         validate: function (word) {
-            if (name.length < 1) {
+            if (word.length < 1) {
                 return console.log("You must provide a valid Github repo name.");
             }
         }
@@ -31,7 +32,7 @@ const questions = [
         message: 'What is the title of your project?',
         name: 'Title',
         validate: function (word) {
-            if (name.length < 1) {
+            if (word.length < 1) {
                 return console.log("You must provide a title for your project.");
             }
         }
@@ -41,7 +42,7 @@ const questions = [
         message: 'Please add a table of content.',
         name: 'Content',
         validate: function (word) {
-            if (name.length < 1) {
+            if (word.length < 1) {
                 return console.log("You must provide a table of content.");
             }
         }
@@ -51,7 +52,7 @@ const questions = [
         message: 'Please include a description of your project.',
         name: 'Description',
         validate: function (word) {
-            if (name.length < 1) {
+            if (word.length < 1) {
                 return console.log("You must provide a description of your project.");
             }
         }
@@ -131,10 +132,13 @@ function writeToFile(fileName, data) {
     )
 };
 
-
+const writeAsyncFile = util.promisify(writeToFile);
 
 // function to initialize program
-function init() {
+async function init() {
+
+    const userInput = await inquirer.prompt(questions);
+  
 
 }
 
