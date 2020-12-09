@@ -1,6 +1,7 @@
 const fs = require('fs');
 const inquirer = require('inquirer');
 const util = require('util');
+const generateReadme = require('./utils/generateReadme.js');
 
 
 
@@ -10,7 +11,7 @@ const questions = [
     {
         type: 'input',
         message: 'What is your Github username?',
-        name: 'Questions',
+        name: 'Username',
         validate: function (word) {
             if (word.length < 1) {
                 return console.log("You must provide a valid Github username.");
@@ -37,16 +38,7 @@ const questions = [
             }
         }
     },
-    {
-        type: 'input',
-        message: 'Please add a table of content.',
-        name: 'Content',
-        validate: function (word) {
-            if (word.length < 1) {
-                return console.log("You must provide a table of content.");
-            }
-        }
-    },
+    
     {
         type: 'input',
         message: 'Please include a description of your project.',
@@ -120,7 +112,7 @@ const questions = [
     {
         type: 'input',
         message: 'Please enter your email address so people can contact you for additional information.',
-        name: 'Questions',
+        name: 'Email',
     },
 
 ];
@@ -135,14 +127,14 @@ function writeToFile(fileName, data) {
 const writeAsyncFile = util.promisify(writeToFile);
 
 // function to initialize program
-async function init() {
+// async function init() {
 
-    const userInput = await inquirer.prompt(questions);
+//     const userInput = await inquirer.prompt(questions);
   
 
-}
+// }
 
-// function call to initialize program
-init();
+// // function call to initialize program
+// init();
 
 
