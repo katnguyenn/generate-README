@@ -2,6 +2,8 @@ const fs = require('fs');
 const inquirer = require('inquirer');
 const util = require('util');
 const generateReadme = require('./utils/generateReadme.js');
+const axios = require('axios')
+
 
 
 
@@ -11,43 +13,27 @@ const questions = [
     {
         type: 'input',
         message: 'What is your Github username?',
-        name: 'Username',
-        validate: function (word) {
-            if (word.length < 1) {
-                return console.log("You must provide a valid Github username.");
-            }
-        }
+        name: 'Username'
+    
     },
     {
         type: 'input',
         message: 'What is the name of your Github repository?',
         name: 'Repository',
-        validate: function (word) {
-            if (word.length < 1) {
-                return console.log("You must provide a valid Github repo name.");
-            }
-        }
+        
     },
     {
         type: 'input',
         message: 'What is the title of your project?',
         name: 'Title',
-        validate: function (word) {
-            if (word.length < 1) {
-                return console.log("You must provide a title for your project.");
-            }
-        }
+       
     },
-    
+
     {
         type: 'input',
         message: 'Please include a description of your project.',
         name: 'Description',
-        validate: function (word) {
-            if (word.length < 1) {
-                return console.log("You must provide a description of your project.");
-            }
-        }
+      
     },
     {
         type: 'input',
@@ -117,6 +103,7 @@ const questions = [
 
 ];
 
+
 // function to write README file
 function writeToFile(fileName, data) {
     fs.writeFile(fileName, data, (err) =>
@@ -124,17 +111,33 @@ function writeToFile(fileName, data) {
     )
 };
 
-const writeAsyncFile = util.promisify(writeToFile);
+// const writeAsyncFile = util.promisify(writeToFile);
 
 // function to initialize program
-// async function init() {
+function init() {
+    try {
 
-//     const userInput = await inquirer.prompt(questions);
-  
 
-// }
+      inquirer.prompt(questions).then(function(userInput){
+       axios.get("https://api.github.com/users/" + userInput.Username).then(function(result){
+           console.log(result.data);
+        userInput.profileLink = result.data.html_url 
+        const markdown = generateReadme(userInput);
+        writeToFile("./README.md", markdown);
+       })
+
+      });
+    
+
+
+    
+    } catch(err) {
+        console.log(err);
+    }
+
+}
 
 // // function call to initialize program
-// init();
+init();
 
 
