@@ -14,26 +14,26 @@ const questions = [
         type: 'input',
         message: 'What is your Github username?',
         name: 'Username'
-    
+
     },
     {
         type: 'input',
         message: 'What is the name of your Github repository?',
         name: 'Repository',
-        
+
     },
     {
         type: 'input',
         message: 'What is the title of your project?',
         name: 'Title',
-       
+
     },
 
     {
         type: 'input',
         message: 'Please include a description of your project.',
         name: 'Description',
-      
+
     },
     {
         type: 'input',
@@ -111,27 +111,26 @@ function writeToFile(fileName, data) {
     )
 };
 
-// const writeAsyncFile = util.promisify(writeToFile);
 
 // function to initialize program
 function init() {
     try {
 
 
-      inquirer.prompt(questions).then(function(userInput){
-       axios.get("https://api.github.com/users/" + userInput.Username).then(function(result){
-           console.log(result.data);
-        userInput.profileLink = result.data.html_url 
-        const markdown = generateReadme(userInput);
-        writeToFile("./README.md", markdown);
-       })
+        inquirer.prompt(questions).then(function (userInput) {
+            axios.get("https://api.github.com/users/" + userInput.Username).then(function (result) {
+                console.log(result.data);
+                userInput.profileLink = result.data.html_url
+                const markdown = generateReadme(userInput);
+                writeToFile("./README.md", markdown);
+            })
 
-      });
-    
+        });
 
 
-    
-    } catch(err) {
+
+
+    } catch (err) {
         console.log(err);
     }
 
