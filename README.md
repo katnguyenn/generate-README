@@ -10,8 +10,8 @@ If your README is very long, add a table of contents to make it easy for users t
 
 * [Installation](#installation)
 * [Usage](#usage)
-* [Credits](#credits)
 * [License](#license)
+* [Questions](#questions)
 
 
 ## Installation
@@ -23,6 +23,8 @@ If your README is very long, add a table of contents to make it easy for users t
 ## Usage 
 
 ![example](recording.gif)
+
+
 
 
 
@@ -44,6 +46,8 @@ No
 ## Tests
 
 https://drive.google.com/file/d/1C07dIId5cc51A3K1TpHchYBCOpRBRPrv/view
+
+![readme example](readme-example.png)
 
 ## Questions
 Github Profile: https://github.com/katnguyenn<br>
