@@ -2,7 +2,7 @@
 
 ## Description 
 
-   This command-line application dynamically generates a professional README.md file from a user’s input using the Inquirer package. The application will be invoked using the following command: node index.js. This application allows project creator to devote more time to working on the project. 
+This command-line application dynamically generates a professional README.md file from a user’s input using the Inquirer package. The application will be invoked using the following command: node index.js. This application allows project creator to devote more time to working on the project. 
 
 ## Table of Contents (Optional)
 
@@ -10,15 +10,15 @@ If your README is very long, add a table of contents to make it easy for users t
 
 * [Installation](#installation)
 * [Usage](#usage)
+* [Credits](#credits)
 * [License](#license)
-* [Questions](#questions)
 
 
 ## Installation
 
-   npm i inquirer
-   
-   npm i axios
+ npm i inquirer 
+ 
+ npm i axios
 
 ## Usage 
 
@@ -28,9 +28,7 @@ If your README is very long, add a table of contents to make it easy for users t
 
 ## License
 
-   MIT
-
-
+MIT
 
 
 ## Badges
@@ -45,11 +43,11 @@ No
 
 ## Tests
 
-N/A
+https://drive.google.com/file/d/1C07dIId5cc51A3K1TpHchYBCOpRBRPrv/view
 
-   ## Questions
-   Github Profile: https://github.com/katnguyenn<br>
-   Email: nguyenkat01@yahoo.com	
+## Questions
+Github Profile: https://github.com/katnguyenn<br>
+Email: nguyenkat01@yahoo.com
 
 
 
