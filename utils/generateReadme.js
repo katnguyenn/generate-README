@@ -1,33 +1,54 @@
 function generateReadme(userInput) {
-    return `# ${userInput.title}
+return `# ${userInput.Title}
 
+## Description 
 
-## Description
-    ${ userInput.Description }
+   ${userInput.Description}
+
+## Table of Contents (Optional)
+
+If your README is very long, add a table of contents to make it easy for users to find what they need.
+
+* [Installation](#installation)
+* [Usage](#usage)
+* [Credits](#credits)
+* [License](#license)
 
 
 ## Installation
-    ${ userInput.Installtion }
 
-## Usage
-    ${ userInput.Usage }
+   ${userInput.Installation}
 
-## Contribution
-    ${ userInput.Contribution }
+## Usage 
 
+${userInput.Usage}
 
-## Tests
-    ${ userInput.Tests }
 
 
 ## License
 
-    ![License](https://img.shields.io/badge/license-${userInput.License}-blue.svg)]
+   ${userInput.License}
 
 
-## Questions
-Check out my Github: ${ userInput.Username }
-If you have any questions, feel free to reach me at: ${ userInput.Email }
+
+
+## Badges
+
+![badmath](https://img.shields.io/github/languages/top/nielsenjared/badmath)
+
+
+   
+## Contributing
+
+${userInput.Contribution}
+
+## Tests
+
+${userInput.Tests}
+
+   ## Questions
+   Github Profile: ${userInput.profileLink}<br>
+   Email: ${userInput.Email}
 
 
 
